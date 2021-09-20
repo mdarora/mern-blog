@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../components/Header'
+import Post from '../components/Post'
 import Sidebar from '../components/Sidebar'
 
 const Home = () => {
@@ -8,7 +9,11 @@ const Home = () => {
         <Header></Header>
         <div className="home-wrapper">
             <div className="posts">
-                <p>post</p>
+                <Post/>
+                <Post/>
+                <Post/>
+                <Post/>
+                <Post/>
             </div>
             <Sidebar></Sidebar>
         </div>
