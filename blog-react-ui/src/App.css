@@ -1,9 +1,14 @@
 nav{
   height: 50px;
   padding: 0px 15px;
+  position: sticky;
+  top: 0;
+  z-index: 11;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: white;
+  border-bottom: 1px solid #444;
   font-family: 'Josefin Sans', sans-serif;
 
 }
