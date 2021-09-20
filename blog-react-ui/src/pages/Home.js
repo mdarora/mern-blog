@@ -1,11 +1,17 @@
 import React from 'react'
 import Header from '../components/Header'
+import Sidebar from '../components/Sidebar'
 
 const Home = () => {
     return (
     <>
         <Header></Header>
-        <h1>Homepage</h1>
+        <div className="home-wrapper">
+            <div className="posts">
+                <p>post</p>
+            </div>
+            <Sidebar></Sidebar>
+        </div>
     </>
     )
 }
