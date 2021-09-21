@@ -254,7 +254,7 @@ header img{
 }
 
 /* ************************************************************************ */
-.write-page{
+.write-page, .profile-page{
   max-width: 80vw;
   margin: auto;
 }
@@ -311,4 +311,66 @@ header img{
   padding: 8px 15px;
   border-radius: 10px;
   background-color: teal;
+}
+
+/* ****************************************************************** */
+.profile-page{
+  display: flex;
+  justify-content: space-between;
+}
+.profile-form{
+  flex: 9;
+  padding: 0 15px;
+}
+.profile-head-titles{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 16px 0 40px 0px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+.profile-head-titles h2{
+  color: tomato;
+  opacity: .8;
+}
+.profile-head-titles h6{
+  color: red;
+  cursor: pointer;
+}
+.profile-form-group{
+  margin-bottom: 30px;
+}
+.profile-form-group img{
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.profile-form-group label{
+  font-size: 20px;
+  font-family: 'Lora', serif;
+}
+.profile-form-group input{
+  padding: 10px;
+  border: none;
+  width: 100%;
+  font-size: 16px;
+  outline: none;
+  border-bottom: 1px solid #dddddd;
+}
+.profile-submit-button{
+  text-align: center;
+}
+.profile-submit-button button{
+  border: none;
+  color: #fff;
+  padding: 8px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: teal;
+}
+
+/* ********************************************************** */
+.login-page{
+  background-image: url("https://images.pexels.com/photos/461077/pexels-photo-461077.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
 }
