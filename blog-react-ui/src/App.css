@@ -371,6 +371,39 @@ header img{
 }
 
 /* ********************************************************** */
-.login-page{
-  background-image: url("https://images.pexels.com/photos/461077/pexels-photo-461077.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+.login-page, .register-page{
+  min-height: calc(100vh - 50px);
+  background: linear-gradient(#00000077, #00000077),  url("https://images.pexels.com/photos/461077/pexels-photo-461077.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-form h2, .register-form h2{
+  font-size: 46px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-family: 'Lora', serif;
+}
+.login-form-group, .register-form-group{
+  margin-bottom: 20px;
+}
+.login-form-group label, .register-form-group label{
+  font-size: 18px;
+}
+.login-form-group input, .register-form-group input{
+  padding: 10px;
+  min-width: 300px;
+  margin-top: 10px;
+  outline: none;
+}
+.login-btn button, .register-btn button{
+  width: 100%;
+  color: #ffffff;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: teal;
 }
