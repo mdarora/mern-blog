@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 const Navbar = () => {
     return (
@@ -10,16 +12,18 @@ const Navbar = () => {
         </div>
         <div className="nav-links">
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/">About</a></li>
-                <li><a href="/">Contact</a></li>
-                <li><a href="/">Write</a></li>
-                <li><a href="/">Logout</a></li>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/write">Write</Link></li>
+                <li><Link to="/login">Login</Link></li>
+                <li><Link to="/register">Register</Link></li>
+                <li><Link to="/logout">Logout</Link></li>
             </ul>
         </div>
         <div className="profile-search">
             <div className="profile-img">
-                <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="" />
+                <Link to="/profile">
+                    <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="" />
+                </Link>
             </div>
             <div className="search-icon">
                 <i className="fas fa-search"></i>

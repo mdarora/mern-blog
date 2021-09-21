@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const post = () => {
     return (
@@ -13,7 +14,9 @@ const post = () => {
                 <span>Nature</span>
             </div>
             <div className="post-title">
-                <h3>Lorem ipsum dolor sit amet.</h3>
+                <Link to="/post">
+                    <h3>Lorem ipsum dolor sit amet.</h3>
+                </Link>
             </div>
             <div className="post-time">1 hour ago</div>
             <p className="post-desc">
