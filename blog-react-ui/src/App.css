@@ -252,3 +252,63 @@ header img{
   margin-left: 30px;
   font-weight: bold;
 }
+
+/* ************************************************************************ */
+.write-page{
+  max-width: 80vw;
+  margin: auto;
+}
+.write-img{
+  text-align: center;
+}
+.write-img img{
+  width: 70%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.write-page form{
+  margin-bottom: 20px;
+}
+.write-from-group{
+  margin-bottom: 10px;
+}
+.write-from-group i{
+  font-size: 18px;
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+.write-title-file{
+  display: flex;
+  align-items: center;
+}
+.write-from-group input, .write-from-group textarea{
+  border: none;
+  outline: none;
+  padding: 10px;
+}
+.write-from-group input{
+  font-size: 26px;
+  font-weight: bold;
+  flex: 1;
+}
+.write-from-group textarea{
+  width: 100%;
+  resize: vertical;
+  font-size: 20px;
+}
+.write-submit-btn{
+  margin-top: 15px;
+}
+.write-submit-btn button{
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px 15px;
+  border-radius: 10px;
+  background-color: teal;
+}
