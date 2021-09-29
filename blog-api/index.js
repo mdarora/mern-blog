@@ -1,7 +1,13 @@
 const express = require('express');
 const app = express();
 
+require('dotenv').config();
 
-app.listen(5500, ()=>{
-   console.log("server is listening to port 5500");
+app.get("/", (req, res)=> {
+    res.json({message: "home route of server"});
+});
+
+
+app.listen(process.env.PORT, ()=>{
+   console.log("server is listening to port", process.env.PORT);
 });
