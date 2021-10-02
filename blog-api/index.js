@@ -8,6 +8,7 @@ app.get("/", (req, res)=> {
 });
 
 
+require('./db/dbConnection');
 app.listen(process.env.PORT, ()=>{
-   console.log("server is listening to port", process.env.PORT);
+   console.log("server is listening to port :", process.env.PORT);
 });
