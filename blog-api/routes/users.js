@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const User = require('../db/models/User');
+const Post = require('../db/models/Post');
 
 
 router.delete("/:id", async (req, res) => {
@@ -13,6 +14,7 @@ router.delete("/:id", async (req, res) => {
         if(!findByid){
             return res.status(402).json({error: "INvalid request."});
         }
+        await Post.deleteMany({username: findByid.username});
         await findByid.delete();
 
         return res.status(200).json({message: "User deleted."});
