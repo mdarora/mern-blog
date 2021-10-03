@@ -2,10 +2,12 @@ const router = require('express').Router();
 const User = require('../db/models/User');
 const Post = require('../db/models/Post');
 
+const loginAuth = require('../middlewares/loginAuth');
 
-router.delete("/:id", async (req, res) => {
+
+router.delete("/:id", loginAuth, async (req, res) => {
     try {
-        if (req.body.userId !== req.params.id){
+        if (req.Id !== req.params.id){
             return res.status(402).json({error: "You can only delete your own account."});
         }
 
@@ -37,7 +39,7 @@ router.get("/:id", async (req, res) => {
             return res.status(404).json({error: 'User not found.'});
         }
 
-        return res.status(200).json({message: "User found", User : getById});
+        return res.status(200).json({message: "User found.", User : getById});
 
     } catch (error) {
         console.log(error.message);
