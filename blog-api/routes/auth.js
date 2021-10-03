@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
+const jwt  = require('jsonwebtoken');
 const User = require('../db/models/User');
 
 router.post("/register", async (req, res) => {
@@ -48,12 +49,20 @@ router.post("/login", async (req, res) => {
             return res.status(401).json({error: "Invalid details!"});
         }
 
+        const token = jwt.sign({id: findByUsername._id, username: findByUsername.username}, process.env.SECRET_KEY);
+
+        res.cookie("token", token);
         res.status(200).json({message: "User loggedin.", user: findByUsername});
 
     } catch (error) {
         console.log(error.message);
         return res.status(500).json({error: "Something went Wrong!"});
     }
+});
+
+router.get("/logout", (req, res) => {
+    res.clearCookie("token");
+    res.status(200).json({message: "User logged out."});
 });
 
 module.exports = router;
