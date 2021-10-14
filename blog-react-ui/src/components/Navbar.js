@@ -1,8 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 
 const Navbar = () => {
+
+    const history = useHistory();
+
+    const userLogout = async () =>{
+        await fetch("/api/auth/logout");
+        history.push("/login");
+    }
     return (
     <nav>
         <div className="socials">
@@ -16,7 +23,7 @@ const Navbar = () => {
                 <li><Link to="/write">Write</Link></li>
                 <li><Link to="/login">Login</Link></li>
                 <li><Link to="/register">Register</Link></li>
-                <li><Link to="/logout">Logout</Link></li>
+                <li onClick={userLogout}><span>Logout</span></li>
             </ul>
         </div>
         <div className="profile-search">

@@ -40,9 +40,10 @@ nav{
   font-size: 20px;
   margin: 0px 10px;
 }
-.nav-links ul li a{
-  text-decoration: none;
+.nav-links ul li a, .nav-links ul li span{
   color: #444;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .profile-img{
