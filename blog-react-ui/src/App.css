@@ -411,3 +411,8 @@ header img{
   font-size: 16px;
   background-color: teal;
 }
+.loginResText{
+  color: tomato;
+  text-align: center;
+  font-size: 18px;
+}
