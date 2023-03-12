@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const multer = require('multer');
 
 require('dotenv').config();
 
@@ -9,6 +10,20 @@ app.get("/", (req, res)=> {
 
 app.use(express.json());
 app.use(require('cookie-parser')());
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "images/");
+    },
+    filename: (req, file, cb ) =>{
+        cb(null, "hardCodeName.jpeg");
+    }
+});
+
+const upload = multer({storage});
+app.post("/api/upload", upload.single("file"), (req, res) => {
+    res.status(200).json({message: "Image uploaded."});
+});
 
 
 // api routes
