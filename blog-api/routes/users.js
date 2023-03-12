@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const jwt  = require('jsonwebtoken');
 const User = require('../db/models/User');
 const Post = require('../db/models/Post');
 
@@ -45,6 +46,9 @@ router.put("/:id", loginAuth, async (req, res) => {
         if(!updateUser.acknowledged){
             return res.status(500).json({error: "Something went wrong", updateUser });
         }
+
+        const token = jwt.sign({id: req.id, username}, process.env.SECRET_KEY);
+        res.cookie("token", token);
 
         res.status(200).json({message: "User Updated"});
 
