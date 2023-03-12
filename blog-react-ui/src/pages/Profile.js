@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import Sidebar from "../components/Sidebar";
+import LoginContext from '../contexts/LoginContext';
 
 const Profile = () => {
+
+    const history = useHistory();
+    const {isloggedin} = useContext(LoginContext);
+
+    if(!isloggedin){
+        history.push("/login");
+    }
+
     return (
     <main className="profile-page">
         <form className="profile-form">
@@ -15,15 +25,15 @@ const Profile = () => {
             </div>
             <div className="profile-form-group">
                 <label htmlFor="username">Username</label> <br />
-                <input type="text" placeholder="mdarora" autoComplete="off" />
+                <input type="text" placeholder="mdarora" autoComplete="off" readOnly/>
             </div>
             <div className="profile-form-group">
                 <label htmlFor="email">Email</label> <br />
-                <input type="email" placeholder="mdarora@md.com" autoComplete="off" />
+                <input type="email" placeholder="mdarora@md.com" autoComplete="off" readOnly/>
             </div>
             <div className="profile-form-group">
                 <label htmlFor="password">Password</label> <br />
-                <input type="password"  id="password" autoComplete="off" />
+                <input type="password"  id="password" autoComplete="off" readOnly/>
             </div>
 
             <div className="profile-submit-button">
