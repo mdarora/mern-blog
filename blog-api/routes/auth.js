@@ -3,6 +3,8 @@ const bcrypt = require('bcryptjs');
 const jwt  = require('jsonwebtoken');
 const User = require('../db/models/User');
 
+const loginAuth = require('../middlewares/loginAuth');
+
 router.post("/register", async (req, res) => {
     try {
         const {username, email, password} = req.body;
@@ -58,6 +60,10 @@ router.post("/login", async (req, res) => {
         console.log(error.message);
         return res.status(500).json({error: "Something went Wrong!"});
     }
+});
+
+router.get("/login", loginAuth, (req, res) => {
+    res.status(200).json({id: req.id, username: req.username});
 });
 
 router.get("/logout", (req, res) => {
