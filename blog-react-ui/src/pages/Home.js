@@ -17,7 +17,6 @@ const Home = () => {
             if(result.message){
                 setPosts(result.posts);
             }
-            console.log(result.posts);
         }
         getPosts();
     }, []);
