@@ -28,6 +28,8 @@ router.post("/", loginAuth, async (req, res) => {
     }
 });
 
+// TODO: create a route to update post (53:19)
+
 router.delete("/:id", loginAuth, async (req, res) => {
     try {
         const findPostById = await Post.findOne({_id: req.params.id});
