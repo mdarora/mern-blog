@@ -8,13 +8,13 @@ const loginAuth = require('../middlewares/loginAuth');
 router.delete("/:id", loginAuth, async (req, res) => {
     try {
         if (req.Id !== req.params.id){
-            return res.status(402).json({error: "You can only delete your own account."});
+            return res.status(402).json({error: "You can delete only your own account."});
         }
 
         const findByid = await User.findOne({_id: req.params.id});
 
         if(!findByid){
-            return res.status(402).json({error: "INvalid request."});
+            return res.status(402).json({error: "Invalid request."});
         }
         await Post.deleteMany({username: findByid.username});
         await findByid.delete();
@@ -26,6 +26,34 @@ router.delete("/:id", loginAuth, async (req, res) => {
         return res.status(500).json({error: "Something went Wrong!"});
     }
 });
+
+router.put("/:id", loginAuth, async (req, res) => {
+    try {
+        if(req.id !== req.params.id){
+            return res.status(402).json({error: "You can update only your own account."});
+        }
+
+        const {username, email, profilePic} = req.body;
+        const findUserById = await User.findOne({_id: req.params.id});
+
+        if(!findUserById){
+            return res.status(402).json({error: "Invalid request."});
+        }
+
+         const updateUser = await findUserById.update({username, email, profilePic});
+
+        if(!updateUser.acknowledged){
+            return res.status(500).json({error: "Something went wrong", updateUser });
+        }
+
+        res.status(200).json({message: "User Updated"});
+
+    } catch (error) {
+        
+    }
+});
+
+// TODO: create another route just to update user password.
 
 router.get("/:id", async (req, res) => {
     try {
