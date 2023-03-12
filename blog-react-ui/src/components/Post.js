@@ -5,9 +5,9 @@ const post = ({post}) => {
     return (
     <>
         <div className="post">
-            <Link to="/post">
+            <Link to={`/post/${post._id}`}>
                 <div className="post-img">
-                    <img src={post.image} alt={`image : ${post.title}`} />
+                    <img src={post.image} alt={post.title} />
                 </div>
             </Link>
             <div className="postBody">
@@ -17,7 +17,7 @@ const post = ({post}) => {
                     ))}
                 </div>
                 <div className="post-title">
-                    <Link to="/post">
+                    <Link to={`/post/${post._id}`}>
                         <h3>{post.title}</h3>
                     </Link>
                 </div>
