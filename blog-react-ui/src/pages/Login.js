@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {useHistory} from "react-router-dom";
+import LoginContext from '../contexts/LoginContext';
 
 const Login = () => {
 
     const history = useHistory();
+
+    const {isloggedin, setIsloggedin, setLoggedUser} = useContext(LoginContext);
+
+    if(isloggedin){
+        history.push("/");
+    }
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -30,6 +37,8 @@ const Login = () => {
             if(result.error){
                 return setResText(result.error);
             } else if (result.message){
+                setIsloggedin(true);
+                setLoggedUser({id: result.user._id, username: result.user.username});
                 history.push("/");
             }
         } catch (error) {
@@ -41,7 +50,7 @@ const Login = () => {
             <form onSubmit={userLogin} className="login-form">
                 <h2>Login</h2>
                 <div className="login-form-group">
-                    <label htmlFor="username">username</label> <br />
+                    <label htmlFor="username">Username</label> <br />
                     <input type="username" id="username" placeholder="Enter your username" value={username} onChange={(e) => setUsername(e.target.value)} autoComplete="off" />
                 </div>
                 <div className="login-form-group">
