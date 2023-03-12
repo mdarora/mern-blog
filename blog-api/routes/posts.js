@@ -4,6 +4,8 @@ const Post = require('../db/models/Post');
 
 const loginAuth = require('../middlewares/loginAuth');
 
+
+// Route to create a new post
 router.post("/", loginAuth, async (req, res) => {
     const {title, desc} = req.body;
     try {
@@ -30,6 +32,8 @@ router.post("/", loginAuth, async (req, res) => {
 
 // TODO: create a route to update post (53:19)
 
+
+// Route to delete a post
 router.delete("/:id", loginAuth, async (req, res) => {
     try {
         const findPostById = await Post.findOne({_id: req.params.id});
@@ -49,6 +53,8 @@ router.delete("/:id", loginAuth, async (req, res) => {
     }
 });
 
+
+// Route to get a post
 router.get("/:id", async (req, res) => {
     try {
         const findPostById = await Post.findOne({_id: req.params.id});
@@ -58,6 +64,35 @@ router.get("/:id", async (req, res) => {
 
         res.status(200).json({message: "Post found", post: findPostById});
         
+    } catch (error) {
+        console.log(error.message);
+        return res.status(500).json({error: "Something went Wrong!"});
+    }
+});
+
+
+// Route to get all posts
+router.get("/", async (req, res)=> {
+    try {
+        const {user, cat} = req.query;
+        let posts;
+
+        if(user && cat) {
+            posts = await Post.find({username: user,categories: {$in: [cat]}});
+        } else if (user) {
+            posts = await Post.find({username: user});
+        } else if (cat){
+            posts = await Post.find({categories: {$in: [cat]}});
+        } else {
+            posts = await Post.find();
+        }
+
+        if(!posts.length){
+            return res.status(404).json({error: "No Post Found"});
+        }
+
+        res.status(200).json({message: "Posts found.", posts} );
+
     } catch (error) {
         console.log(error.message);
         return res.status(500).json({error: "Something went Wrong!"});
