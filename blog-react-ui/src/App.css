@@ -101,8 +101,10 @@ header img{
 }
 
 .post{
-  width: 45%;
+  width: 40%;
   margin: 15px;
+  border-radius: 10px;
+  border: 1px solid black;
 }
 .post div{
   text-align: center;
@@ -111,6 +113,9 @@ header img{
   width: 100%;
   margin-bottom: 10px;
   border-radius: 10px;
+}
+.postBody{
+  padding: 12px;
 }
 .post-cats{
   display: flex;
@@ -140,6 +145,7 @@ header img{
   margin-top: 10px;
   font-size: 14px;
   line-height: 20px;
+  text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
