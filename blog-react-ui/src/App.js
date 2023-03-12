@@ -21,7 +21,7 @@ function App() {
           <Home></Home>
         </Route>
 
-        <Route path="/post">
+        <Route path="/post/:id">
           <SinglePost></SinglePost>
         </Route>
 
