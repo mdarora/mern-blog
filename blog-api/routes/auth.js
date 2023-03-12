@@ -54,6 +54,7 @@ router.post("/login", async (req, res) => {
         const token = jwt.sign({id: findByUsername._id, username: findByUsername.username}, process.env.SECRET_KEY);
 
         res.cookie("token", token);
+        // ToDo: donot send password when user logged in
         res.status(200).json({message: "User loggedin.", user: findByUsername});
 
     } catch (error) {
