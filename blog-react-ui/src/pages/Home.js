@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import Header from '../components/Header'
 import Post from '../components/Post'
 import Sidebar from '../components/Sidebar'
 
 const Home = () => {
     const [posts, setPosts] = useState([]);
-
+    const {search} = useLocation();
+    
     useEffect(() => {
+        let apiRoute = `/api/posts`;
+
+        if(search){
+            apiRoute = `/api/posts${search}`;
+        }
       
         const getPosts = async() =>{
-            const res = await fetch("/api/posts", {
+            const res = await fetch(apiRoute, {
                 method: "GET"
             });
             const result = await res.json();
@@ -19,7 +26,7 @@ const Home = () => {
             }
         }
         getPosts();
-    }, []);
+    }, [search]);
     
     return (
     <>

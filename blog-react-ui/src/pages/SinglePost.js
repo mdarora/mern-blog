@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import Sidebar from '../components/Sidebar'
 
 const SinglePost = () => {
@@ -31,7 +31,11 @@ const SinglePost = () => {
             </h1>
             <div className="spost-info-btns">
                 <div className="spost-info">
-                    <p className="spost-author">Author: <span className="spost-author-name">{post.username}</span> </p>
+                    <p className="spost-author">Author:
+                        <span className="spost-author-name">
+                            <Link to={`/?user=${post.username}`}>{post.username}</Link>
+                        </span> 
+                    </p>
                     <p className="spost-time">{new Date(post.createdAt).toDateString()}</p>
                 </div>
                 <div className="spost-btns">
