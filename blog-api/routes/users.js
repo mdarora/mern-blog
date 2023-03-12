@@ -49,7 +49,8 @@ router.put("/:id", loginAuth, async (req, res) => {
         res.status(200).json({message: "User Updated"});
 
     } catch (error) {
-        
+        console.log(error.message);
+        return res.status(500).json({error: "Something went Wrong!"});
     }
 });
 
