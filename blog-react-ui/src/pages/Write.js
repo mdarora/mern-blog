@@ -1,6 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { useHistory } from 'react-router-dom'
+import LoginContext from '../contexts/LoginContext';
 
 const Write = () => {
+
+    const history = useHistory();
+    const {isloggedin} = useContext(LoginContext);
+
+    if(!isloggedin){
+        history.push("/login");
+    }
+
     return (
     <main className="write-page">
         <div className="write-img">
