@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const multer = require('multer');
+const path = require('path')
 
 require('dotenv').config();
 
@@ -10,13 +11,14 @@ app.get("/", (req, res)=> {
 
 app.use(express.json());
 app.use(require('cookie-parser')());
+app.use('/images', express.static(path.join(__dirname, "/images")));
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, "images/");
     },
     filename: (req, file, cb ) =>{
-        cb(null, "hardCodeName.jpeg");
+        cb(null, req.body.name);
     }
 });
 
