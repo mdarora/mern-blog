@@ -12,6 +12,7 @@ nav{
   align-items: center;
   justify-content: space-between;
   background-color: white;
+  border-bottom: 1px solid black;
   font-family: 'Josefin Sans', sans-serif;
 
 }
