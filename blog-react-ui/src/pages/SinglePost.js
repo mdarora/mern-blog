@@ -4,6 +4,7 @@ import Sidebar from '../components/Sidebar'
 
 const SinglePost = () => {
     const {id} = useParams();
+    const publicFolder = "http://localhost:5500/images/";
 
     const [post, setPost] = useState({});
 
@@ -24,7 +25,7 @@ const SinglePost = () => {
     <main className="single-post-page">
         <div className="single-post">
             <div className="spost-img">
-                <img src={post.image} alt="beautiful beach with a sunset" />
+                <img src={publicFolder + post.image} alt="beautiful beach with a sunset" />
             </div>
             <h1 className="spost-title">
                 {post.title}
